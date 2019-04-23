@@ -59,20 +59,6 @@
             ]
         },
         {
-            "name": "python3-peewee",
-            "buildsystem": "simple",
-            "build-commands": [
-                "pip3 install --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} peewee"
-            ],
-            "sources": [
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/c9/e4/f82bd273a7c88e7a2f71652324039c7e382f2f88eced01b9799d6c936ad2/peewee-3.9.3.tar.gz",
-                    "sha256": "603337153536b85c3c5b5e84df4ae0f9cbaff09163a3739451d167e0ad3fe1f7"
-                }
-            ]
-        },
-        {
             "name": "python-setuptools_scm",
             "buildsystem": "simple",
             "build-commands": [
@@ -119,8 +105,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.com/librebob/athenaeum.git",
-                    "tag": "v0.3.0",
-                    "commit": "668867a159be8f6571c86c574149a8a41cabc9b1"
+                    "tag": "v0.4.0",
+                    "commit": "2ecabe0c922b44ed5f1abdd8094bf10f790a4f6e"
                 }
             ],
             "build-commands": [
