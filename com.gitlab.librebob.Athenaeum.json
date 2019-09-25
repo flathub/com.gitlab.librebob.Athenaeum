@@ -68,8 +68,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.com/librebob/athenaeum.git",
-                    "tag": "v1.0.2",
-                    "commit": "a19029f45ecc0774c087417cbe4b91a6b179311e"
+                    "tag": "v1.0.0",
+                    "commit": "4e7a2f6b88652077dd01a211315381475059ed35"
                 }
             ],
             "build-commands": [
