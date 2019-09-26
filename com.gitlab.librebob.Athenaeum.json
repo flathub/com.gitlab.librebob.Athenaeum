@@ -1,7 +1,7 @@
 {
     "id": "com.gitlab.librebob.Athenaeum",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.12",
+    "runtime-version": "5.13",
     "sdk": "org.kde.Sdk",
     "command": "athenaeum",
     "finish-args": [
@@ -69,7 +69,7 @@
                     "type": "git",
                     "url": "https://gitlab.com/librebob/athenaeum.git",
                     "tag": "v1.0.0",
-                    "commit": "4e7a2f6b88652077dd01a211315381475059ed35"
+                    "commit": "9cc9bcaee7d6764ff16f8f8216744f69729148d2"
                 }
             ],
             "build-commands": [
