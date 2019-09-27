@@ -69,15 +69,15 @@
                     "type": "git",
                     "url": "https://gitlab.com/librebob/athenaeum.git",
                     "tag": "v1.0.0",
-                    "commit": "9cc9bcaee7d6764ff16f8f8216744f69729148d2"
+                    "commit": "9ef09db4004bebf42528f20e3a55caeb2fdcd1bc"
                 }
             ],
             "build-commands": [
                 "for i in 32 48 64 96 128 256 512; do
-                    install -Dm644 athenaeum/resources/icons/hicolor/${i}x${i}/com.gitlab.librebob.Athenaeum.png -t ${FLATPAK_DEST}/share/icons/hicolor/${i}x${i}/apps/
+                    install -Dm644 athenaeum/resources/icons/hicolor/${i}x${i}/%{id}.png -t ${FLATPAK_DEST}/share/icons/hicolor/${i}x${i}/apps/
                 done",
-                "install -Dm644 athenaeum/resources/com.gitlab.librebob.Athenaeum.appdata.xml -t ${FLATPAK_DEST}/share/appdata/",
-                "install -Dm644 athenaeum/resources/com.gitlab.librebob.Athenaeum.desktop -t ${FLATPAK_DEST}/share/applications/",
+                "install -Dm644 athenaeum/resources/%{id}.appdata.xml -t ${FLATPAK_DEST}/share/metainfo/",
+                "install -Dm644 athenaeum/resources/%{id}.desktop -t ${FLATPAK_DEST}/share/applications/",
                 "python3 setup.py install --optimize=1 --prefix=${FLATPAK_DEST}"
             ]
         }
