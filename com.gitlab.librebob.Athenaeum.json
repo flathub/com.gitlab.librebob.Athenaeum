@@ -74,10 +74,10 @@
             ],
             "build-commands": [
                 "for i in 32 48 64 96 128 256 512; do
-                    install -Dm644 athenaeum/resources/icons/hicolor/${i}x${i}/%{id}.png -t ${FLATPAK_DEST}/share/icons/hicolor/${i}x${i}/apps/
+                    install -Dm644 athenaeum/resources/icons/hicolor/${i}x${i}/com.gitlab.librebob.Athenaeum.png -t ${FLATPAK_DEST}/share/icons/hicolor/${i}x${i}/apps/
                 done",
-                "install -Dm644 athenaeum/resources/%{id}.appdata.xml -t ${FLATPAK_DEST}/share/metainfo/",
-                "install -Dm644 athenaeum/resources/%{id}.desktop -t ${FLATPAK_DEST}/share/applications/",
+                "install -Dm644 athenaeum/resources/com.gitlab.librebob.Athenaeum.appdata.xml -t ${FLATPAK_DEST}/share/metainfo/",
+                "install -Dm644 athenaeum/resources/com.gitlab.librebob.Athenaeum.desktop -t ${FLATPAK_DEST}/share/applications/",
                 "python3 setup.py install --optimize=1 --prefix=${FLATPAK_DEST}"
             ]
         }
