@@ -23,13 +23,13 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.11.3/PyQt5_gpl-5.11.3.zip",
-                    "sha256" : "7cacf0712d76a702e0e2102a65f411fd72e7f64a851a47a72c03fbafbe447aae"
+                    "url": "https://www.riverbankcomputing.com/static/Downloads/PyQt5/5.13.1/PyQt5_gpl-5.13.1.tar.gz",
+                    "sha256": "54b7f456341b89eeb3930e786837762ea67f235e886512496c4152ebe106d4af"
                 },
                 {
                     "type": "script",
                     "commands": [
-                        "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app --qsci-api --qsci-api-destdir=/app/qsci --sipdir=/app/share/sip --sip=/app/bin/sip --sip-incdir=/app/include QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.7m/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.7m/'"
+                        "python3 configure.py --confirm-license --no-docstrings --assume-shared --no-sip-files --no-designer-plugin --no-qml-plugin --no-tools --sysroot=/app --qsci-api --qsci-api-destdir=/app/qsci --sipdir=/app/share/sip --sip=/app/bin/sip --sip-incdir=/app/include QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.7m/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.7m/'"
                     ],
                     "dest-filename": "configure"
                 }
@@ -40,8 +40,8 @@
                     "sources" : [
                         {
                             "type" : "archive",
-                            "url" : "https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.12/sip-4.19.12.tar.gz",
-                            "sha256" : "24617fc31b983df075500ecac0e99d2fb48bf63ba82d4a17518659e571923822"
+                            "url": "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.19/sip-4.19.19.tar.gz",
+                            "sha256": "5436b61a78f48c7e8078e93a6b59453ad33780f80c644e5f3af39f94be1ede44"
                         },
                         {
                             "type": "script",
@@ -53,7 +53,8 @@
                     ],
                     "cleanup" : [
                         "/bin",
-                        "/include"
+                        "/include",
+                        "/lib/python3.7/site-packages/*.pyi"
                     ]
                 }
             ]
@@ -68,8 +69,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.com/librebob/athenaeum.git",
-                    "tag": "v1.0.3",
-                    "commit": "d472df852133963751fa352c9a53252f8c2e446e"
+                    "tag": "v1.1.0",
+                    "commit": "5fb73753bd216b4486b391a1a108e8c1ad94dc4c"
                 }
             ],
             "build-commands": [
