@@ -1,12 +1,13 @@
 {
     "id": "com.gitlab.librebob.Athenaeum",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.13",
+    "runtime-version": "5.15",
     "sdk": "org.kde.Sdk",
     "command": "athenaeum",
     "finish-args": [
         "--socket=pulseaudio",
         "--socket=x11",
+        "--socket=wayland",
         "--device=dri",
         "--share=network",
         "--filesystem=xdg-data/flatpak:ro",
@@ -18,13 +19,14 @@
             "name" : "pyqt5",
             "config-opts" : [
                 "--disable-static",
-                "--enable-x11"
+                "--enable-x11",
+                "--enable-wayland"
             ],
             "sources" : [
                 {
                     "type" : "archive",
-                    "url": "https://www.riverbankcomputing.com/static/Downloads/PyQt5/5.13.1/PyQt5_gpl-5.13.1.tar.gz",
-                    "sha256": "54b7f456341b89eeb3930e786837762ea67f235e886512496c4152ebe106d4af"
+                    "url": "https://files.pythonhosted.org/packages/8e/a4/d5e4bf99dd50134c88b95e926d7b81aad2473b47fde5e3e4eac2c69a8942/PyQt5-5.15.4.tar.gz",
+                    "sha256": "2a69597e0dd11caabe75fae133feca66387819fc9bc050f547e5551bce97e5be"
                 },
                 {
                     "type": "script",
@@ -40,8 +42,8 @@
                     "sources" : [
                         {
                             "type" : "archive",
-                            "url": "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.19/sip-4.19.19.tar.gz",
-                            "sha256": "5436b61a78f48c7e8078e93a6b59453ad33780f80c644e5f3af39f94be1ede44"
+                            "url": "https://files.pythonhosted.org/packages/f8/b2/fcd5e964eefce0737512fb4ea263308769c671c3b1b9b1e380a5008ffef0/sip-6.1.1.tar.gz",
+                            "sha256": "52d25af2fcd764c4e15cc9cd1350bdb0e63f52dfa2aa3c5e7679af7fde9f7e20"
                         },
                         {
                             "type": "script",
@@ -54,7 +56,7 @@
                     "cleanup" : [
                         "/bin",
                         "/include",
-                        "/lib/python3.7/site-packages/*.pyi"
+                        "/lib/python3.9/site-packages/*.pyi"
                     ]
                 }
             ]
@@ -69,8 +71,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.com/librebob/athenaeum.git",
-                    "tag": "v1.2.0",
-                    "commit": "2fc596156b465f9e0a56649f0d9c7bd39f12a507"
+                    "tag": "v2.0.0",
+                    "commit": "9f7e90f5cde48495c453ff41e280a075e339f73b"
                 }
             ],
             "build-commands": [
