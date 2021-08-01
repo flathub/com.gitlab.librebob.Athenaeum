@@ -35,6 +35,9 @@
                     "sha256": "2a69597e0dd11caabe75fae133feca66387819fc9bc050f547e5551bce97e5be"
                 }
             ],
+	    "cleanup" : [
+		"/bin"
+	    ],
             "modules" : [
                 {
                     "name": "toml",
@@ -116,6 +119,9 @@
                             "url": "https://files.pythonhosted.org/packages/73/8c/c662b7ebc4b2407d8679da68e11c2a2eb275f5f2242a92610f6e5024c1f2/PyQt5_sip-12.8.1.tar.gz",
                             "sha256": "30e944db9abee9cc757aea16906d4198129558533eb7fadbe48c5da2bd18e0bd"
                         }
+                    ],
+                    "cleanup" : [
+                        "/bin"
                     ]
                 }
             ]
@@ -135,6 +141,8 @@
                 }
             ],
             "build-commands": [
+            	"lrelease athenaeum.pro",
+            	"install -D athenaeum/translations/*.qm -t ${FLATPAK_DEST}/bin/translations/",
                 "for i in 32 48 64 96 128 256 512; do
                     install -Dm644 athenaeum/resources/icons/hicolor/${i}x${i}/com.gitlab.librebob.Athenaeum.png -t ${FLATPAK_DEST}/share/icons/hicolor/${i}x${i}/apps/
                 done",
