@@ -22,40 +22,100 @@
                 "--enable-x11",
                 "--enable-wayland"
             ],
+            "buildsystem": "simple",
+            "build-commands": [
+            "PYVER=$(python3 -c \"import sys;print(sys.version_info[1])\") && QMAKEPATH=/app/lib python3 configure.py --confirm-license --no-designer-plugin --bindir=/app/bin --destdir=/app/lib/python3.${PYVER}/site-packages --qml-plugindir=/app/lib/plugins/PyQt5 --sipdir=/app/share/sip --stubsdir=/app/lib/python3.${PYVER}/site-packages/PyQt5",
+            "make -j $FLATPAK_BUILDER_N_JOBS",
+            "make install"
+            ],
             "sources" : [
                 {
                     "type" : "archive",
                     "url": "https://files.pythonhosted.org/packages/8e/a4/d5e4bf99dd50134c88b95e926d7b81aad2473b47fde5e3e4eac2c69a8942/PyQt5-5.15.4.tar.gz",
                     "sha256": "2a69597e0dd11caabe75fae133feca66387819fc9bc050f547e5551bce97e5be"
-                },
-                {
-                    "type": "script",
-                    "commands": [
-                        "python3 configure.py --confirm-license --no-docstrings --assume-shared --no-sip-files --no-designer-plugin --no-qml-plugin --no-tools --sysroot=/app --qsci-api --qsci-api-destdir=/app/qsci --sipdir=/app/share/sip --sip=/app/bin/sip --sip-incdir=/app/include QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.7m/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.7m/'"
-                    ],
-                    "dest-filename": "configure"
                 }
             ],
             "modules" : [
                 {
+                    "name": "toml",
+                    "buildsystem": "simple",
+                    "build-commands": [
+                        "python3 setup.py install --prefix=/app --root=/"
+                    ],
+                    "sources" : [
+                        {
+                            "type" : "archive",
+                            "url" : "https://files.pythonhosted.org/packages/da/24/84d5c108e818ca294efe7c1ce237b42118643ce58a14d2462b3b2e3800d5/toml-0.10.1.tar.gz",
+                            "sha256" : "926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f"
+                        }
+                    ],
+                    "cleanup" : [
+                        "/bin"
+                    ]
+                },
+                {
+                    "name": "packaging",
+                    "buildsystem": "simple",
+                    "build-commands": [
+                        "python3 setup.py install --prefix=/app --root=/"
+                    ],
+                    "sources" : [
+                        {
+                            "type" : "archive",
+                            "url" : "https://files.pythonhosted.org/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz",
+                            "sha256" : "4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"
+                        }
+                    ],
+                    "cleanup" : [
+                        "/bin"
+                    ]
+                },
+                {
+                    "name": "pyparsing",
+                    "buildsystem": "simple",
+                    "build-commands": [
+                        "python3 setup.py install --prefix=/app --root=/"
+                    ],
+                    "sources" : [
+                        {
+                            "type" : "archive",
+                            "url" : "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz",
+                            "sha256" : "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+                        }
+                    ],
+                    "cleanup" : [
+                        "/bin"
+                    ]
+                },
+                {
                     "name" : "sip",
+                    "buildsystem": "simple",
+                    "build-commands": [
+                        "python3 setup.py install --prefix=/app --root=/"
+                    ],
                     "sources" : [
                         {
                             "type" : "archive",
                             "url" : "https://files.pythonhosted.org/packages/33/e9/27730ac17713c0a80d81d8f3bb56213f1549d96f9dc183fd16a7eec6287c/sip-5.5.0.tar.gz",
                             "sha256" : "5d024c419b30fea8a6de8c71a560c7ab0bc3c221fbfb14d55a5b865bd58eaac5"
-                        },
-                        {
-                            "type": "script",
-                            "commands": [
-                                "python3 setup.py install"
-                            ],
-                            "dest-filename": "configure"
                         }
                     ],
                     "cleanup" : [
-                        "/bin",
-                        "/include"
+                        "/bin"
+                    ]
+                },
+                {
+                    "name": "PyQt5_sip",
+                    "buildsystem": "simple",
+                    "build-commands": [
+                        "python3 setup.py install --prefix=/app --root=/"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://files.pythonhosted.org/packages/73/8c/c662b7ebc4b2407d8679da68e11c2a2eb275f5f2242a92610f6e5024c1f2/PyQt5_sip-12.8.1.tar.gz",
+                            "sha256": "30e944db9abee9cc757aea16906d4198129558533eb7fadbe48c5da2bd18e0bd"
+                        }
                     ]
                 }
             ]
@@ -70,8 +130,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.com/librebob/athenaeum.git",
-                    "tag": "v2.0.0",
-                    "commit": "9f7e90f5cde48495c453ff41e280a075e339f73b"
+                    "tag": "v2.0.1",
+                    "commit": "dae0b8e80ed85092762802f7c1acbb92a2a913c2"
                 }
             ],
             "build-commands": [
